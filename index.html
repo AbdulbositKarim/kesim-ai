@@ -3,53 +3,106 @@
 <html lang="uz">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>KESIM AI Business Platform</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KESIM AI | Intelligent Platform</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#111;color:#fff;font-family:Arial,sans-serif}
-header{padding:22px;background:#191919;border-bottom:2px solid #f36c00}
-.logo{font-size:28px;font-weight:bold}
-.logo span{color:#f36c00}
-main{max-width:1000px;margin:auto;padding:22px}
-h1{font-size:27px}
-p{color:#aaa}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}
-.card{background:#222;padding:20px;border-radius:13px;border:1px solid #333}
-.card h3{color:#f36c00}
-.menu{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:25px}
-.item{background:#222;padding:20px;border-radius:12px}
-.item b{display:block;margin-top:10px}
-button{background:#f36c00;color:white;border:0;padding:14px;border-radius:9px;margin-top:15px;font-weight:bold}
-footer{text-align:center;padding:30px;color:#777}
-@media(min-width:700px){.grid,.menu{grid-template-columns:repeat(3,1fr)}}
+body{margin:0;background:#090d18;color:#f5f7ff;font-family:Arial,sans-serif}
+.app{display:flex;min-height:100vh}
+.sidebar{width:260px;background:#0d1423;border-right:1px solid #202b40;padding:25px 18px}
+.logo{font-size:27px;font-weight:800;color:#62a8ff;letter-spacing:1px}
+.logo span{color:white}
+.tag{font-size:11px;color:#8292ad;margin-top:7px}
+.new{width:100%;margin-top:35px;padding:14px;background:#172943;color:white;border:1px solid #31557e;border-radius:10px;font-size:15px;cursor:pointer}
+.menu{margin-top:35px;color:#9aabc5;font-size:14px;line-height:3}
+.menu div{cursor:pointer}
+.main{flex:1;display:flex;flex-direction:column;min-width:0}
+.top{height:70px;border-bottom:1px solid #202b40;display:flex;align-items:center;justify-content:space-between;padding:0 25px}
+.top strong{font-size:17px}
+.status{color:#65d6a0;font-size:12px}
+.content{flex:1;width:100%;max-width:850px;margin:auto;padding:35px 22px}
+.welcome{text-align:center;margin:65px 0 35px}
+.welcome h1{font-size:34px;margin-bottom:12px}
+.welcome h1 span{color:#62a8ff}
+.welcome p{color:#94a4bd}
+.chat{min-height:150px}
+.message{padding:15px 18px;margin:12px 0;border-radius:13px;line-height:1.6;background:#131f32;white-space:pre-wrap}
+.user{background:#19375a;margin-left:auto;max-width:85%}
+.ai{max-width:90%;border:1px solid #263750}
+.input-area{display:flex;gap:10px;background:#121d2e;border:1px solid #30435f;border-radius:15px;padding:10px}
+.input-area textarea{flex:1;min-width:0;resize:none;height:48px;background:transparent;border:0;outline:0;color:white;font-size:15px;padding:13px}
+.send{width:52px;border:0;border-radius:11px;background:#327fe0;color:white;font-size:21px;cursor:pointer}
+.note{text-align:center;color:#74849d;font-size:11px;margin-top:14px}
+@media(max-width:650px){
+.sidebar{width:75px;padding:20px 9px}
+.logo{font-size:17px;text-align:center}
+.tag,.menu{display:none}
+.new{font-size:20px;padding:12px 3px;margin-top:35px}
+.top{padding:0 15px}
+.welcome{margin-top:55px}
+.welcome h1{font-size:27px}
+.content{padding:20px 13px}
+}
 </style>
 </head>
 <body>
-<header>
-<div class="logo">KESIM <span>AI</span></div>
-<p>ONE BRAND. MANY SOLUTIONS.</p>
-</header>
-<main>
-<h1>Boshqaruv paneli</h1>
-<p>Biznesingizni bitta platformada boshqaring.</p>
-<div class="grid">
-<div class="card"><h3>Umumiy savdo</h3><h2>0 so‘m</h2></div>
-<div class="card"><h3>Mijozlar</h3><h2>0</h2></div>
-<div class="card"><h3>Buyurtmalar</h3><h2>0</h2></div>
-</div>
-<h2>Biznes modullari</h2>
+<div class="app">
+<aside class="sidebar">
+<div class="logo">KESIM<span> AI</span></div>
+<div class="tag">INTELLIGENT PLATFORM</div>
+<button class="new" onclick="newChat()">＋ Yangi chat</button>
 <div class="menu">
-<div class="item">👥<b>CRM — Mijozlar</b></div>
-<div class="item">🛒<b>Savdo va buyurtmalar</b></div>
-<div class="item">📦<b>Mahsulotlar va ombor</b></div>
-<div class="item">💳<b>To‘lovlar</b></div>
-<div class="item">📊<b>Hisobotlar</b></div>
-<div class="item">🤖<b>KESIM AI yordamchi</b></div>
+<div>✦ AI Assistant</div>
+<div>◈ Business</div>
+<div>▤ CRM</div>
+<div>⚙ ERP</div>
+<div>◉ Settings</div>
 </div>
-<button onclick="alert('KESIM AI platformasiga xush kelibsiz!')">Boshlash</button>
+</aside>
+<main class="main">
+<header class="top">
+<strong>KESIM AI <span style="color:#62a8ff">/ Chat</span></strong>
+<span class="status">● Online</span>
+</header>
+<section class="content">
+<div class="welcome" id="welcome">
+<h1>Salom! <span>KESIM AI</span></h1>
+<p>Sizga qanday yordam bera olaman?</p>
+</div>
+<div class="chat" id="chat"></div>
+<div class="input-area">
+<textarea id="message" placeholder="KESIM AI ga xabar yozing..."></textarea>
+<button class="send" onclick="sendMessage()">➤</button>
+</div>
+<div class="note">KESIM AI — Intelligent Business Ecosystem</div>
+</section>
 </main>
-<footer>© 2026 KESIM AI — Kelajakni yarat.</footer>
+</div>
+<script>
+function sendMessage(){
+const input=document.getElementById('message');
+const value=input.value.trim();
+if(!value)return;
+document.getElementById('welcome').style.display='none';
+const chat=document.getElementById('chat');
+const user=document.createElement('div');
+user.className='message user';
+user.textContent=value;
+chat.appendChild(user);
+input.value='';
+const reply=document.createElement('div');
+reply.className='message ai';
+reply.textContent='Xabaringiz qabul qilindi! KESIM AI hozircha sinov rejimida. Haqiqiy AI javoblarini ulash uchun keyingi bosqichda xavfsiz server va AI API integratsiyasini sozlaymiz.';
+chat.appendChild(reply);
+}
+function newChat(){
+document.getElementById('chat').innerHTML='';
+document.getElementById('welcome').style.display='block';
+document.getElementById('message').value='';
+}
+document.getElementById('message').addEventListener('keydown',function(e){
+if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendMessage();}
+});
+</script>
 </body>
 </html>
-
